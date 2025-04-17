@@ -1,0 +1,24 @@
+//Find best time to buy and sell the stock 
+
+// time complexity O(n)  , Space complexity :: O(1)
+
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int leftpointer = 0;
+        int rightpointer = 1;
+        int initalized_max = 0;
+
+        while(rightpointer < prices.length ){
+            if(prices[rightpointer] - prices[leftpointer] > 0){
+                initalized_max = Math.max(initalized_max ,prices[rightpointer] - prices[leftpointer] );
+            }
+            else{
+                leftpointer = rightpointer;
+            }
+
+            rightpointer ++;
+        }
+        return initalized_max ;
+    }
+}
