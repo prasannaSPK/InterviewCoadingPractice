@@ -1,0 +1,26 @@
+
+ //45. Jump Game II  
+  //Mimimum jumps required to reach last index ?
+  //time --> O(n) , Space:: O(1)
+
+
+
+
+
+class Solution {
+    public int jump(int[] nums) {
+        int jump = 0  ;
+        int currentIndex = 0;
+        int farthest = 0 ;
+
+        for(int i = 0 ; i< nums.length-1 ; i++){
+            farthest = Math.max(farthest, i+nums[i]);
+            if(currentIndex == i){
+                jump ++;
+                currentIndex = farthest ;
+            }
+        }
+        return jump ;
+
+    }
+}
